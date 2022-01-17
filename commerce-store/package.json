@@ -17,7 +17,9 @@
     "react-scripts": "4.0.3",
     "react-toastify": "^8.0.3",
     "react-transition-group": "^4.4.2",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "json-server": "^0.17.0",
+    "jsonwebtoken": "^8.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
