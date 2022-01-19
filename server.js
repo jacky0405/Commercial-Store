@@ -1,14 +1,18 @@
 const jsonServer = require('json-server')
 const jwt = require('jsonwebtoken')
 const fs = require('fs');
-const server = jsonServer.create()
+const express = require('express');
+const server = jsonServer.create();
+const path = require('path');
 const router = jsonServer.router('db.json')
-const middlewares = jsonServer.defaults({
-    static: "./build"
-})
+const middlewares = jsonServer.defaults({})
 const port = process.env.PORT || 5000;
 server.use(jsonServer.bodyParser)
-server.use(middlewares)
+server.use('/db', middlewares, router);
+server.use(express.static(path.join(__dirname, 'build')));
+server.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 server.use(
     jsonServer.rewriter({
         "/api/*": "/$1"
