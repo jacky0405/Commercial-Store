@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import App from '../pages/App';
 import Cart from '../pages/Cart';
 import Login from '../pages/Login';
@@ -8,7 +8,7 @@ import Rigister from '../pages/Register';
 
 const Router = () => {
     return (
-        <HashRouter>
+        <BrowserRouter >
             <Switch>
                 <Route path="/" exact component={App}/>
                 <Route path="/login" component={Login}/>
@@ -16,7 +16,7 @@ const Router = () => {
                 <Route path="/register" component={Rigister}/>
                 <Route component={NotFound}/>
             </Switch>
-        </HashRouter>
+        </BrowserRouter>
     )
 }
 
