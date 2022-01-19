@@ -58,7 +58,7 @@ const Products = (props) => {
         })
         if(exist){
             exist.count += 1;
-            await axios.put(`http://localhost:3003/carts/${exist.id}`, exist).then(r => {
+            await axios.put(`http://localhost:5000/carts/${exist.id}`, exist).then(r => {
                 toast.success('Add Cart Success', {
                     autoClose: 2000
                 })
@@ -73,7 +73,7 @@ const Products = (props) => {
                 count: 1,
                 userId: user.email
             }
-            await axios.post('http://localhost:3003/carts', _product).then(r => {
+            await axios.post('http://localhost:5000/carts', _product).then(r => {
                 toast.success('Add Cart Success', {
                     autoClose: 2000
                 })
@@ -83,7 +83,7 @@ const Products = (props) => {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:3003/products')
+        axios.get('http://localhost:5000/products')
             .then(res => {
                 setProducts(res.data);
                 setSourceProduct(res.data);
@@ -92,7 +92,7 @@ const Products = (props) => {
 
     useEffect(() => {
         const user = global.auth.getUser() || {};
-        axios.get(`http://localhost:3003/carts?userId=${user.email}`)
+        axios.get(`http://localhost:5000/carts?userId=${user.email}`)
             .then(res => {
                 setCartItem(res.data);
             })

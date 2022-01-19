@@ -22,7 +22,7 @@ export default function AddInventory(props){
     async function submit(e) {
         e.preventDefault();
         const product = {...state};
-        await axios.post('http://localhost:3003/products',product).then(r => {
+        await axios.post('http://localhost:5000/products',product).then(r => {
             console.log(r.data);
         });
         props.panelSwitcher('close');

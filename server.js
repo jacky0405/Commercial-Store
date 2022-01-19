@@ -3,10 +3,17 @@ const jwt = require('jsonwebtoken')
 const fs = require('fs');
 const server = jsonServer.create()
 const router = jsonServer.router('db.json')
-const middlewares = jsonServer.defaults()
-const port = process.env.PORT || 3003;
+const middlewares = jsonServer.defaults({
+    static: "./build"
+})
+const port = process.env.PORT || 5000;
 server.use(jsonServer.bodyParser)
 server.use(middlewares)
+server.use(
+    jsonServer.rewriter({
+        "/api/*": "/$1"
+    })
+)
 
 const getUsersDb = () => {
     return JSON.parse(fs.readFileSync('./users.json', 'utf-8'));
