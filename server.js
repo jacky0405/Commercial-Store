@@ -74,22 +74,22 @@ server.post('/auth/register', (req, res) => {
     return res.status(200).json(jwtToken)
 });
 
-// server.use('/carts', (req, res, next) => {
-//     console.log(req.headers)
-//     if(req.headers.authorization === undefined || req.headers.authorization.split(' ')[0] !== 'Bearer' ){
-//         return res.status(401).json('Error authentocation format')
-//     }
+server.use('/carts', (req, res, next) => {
+    console.log(req.headers)
+    if(req.headers.authorization === undefined || req.headers.authorization.split(' ')[0] !== 'Bearer' ){
+        return res.status(401).json('Error authentocation format')
+    }
 
-//     try{
-//         const tokenResult = verifyToken(req.headers.authorization.split(' ')[1]);
-//         if(tokenResult instanceof Error){
-//             return res.status(401).json('Access token not provided');
-//         }
-//         next();
-//     } catch {
-//         return res.status(401).json('Error token');
-//     }
-// })
+    try{
+        const tokenResult = verifyToken(req.headers.authorization.split(' ')[1]);
+        if(tokenResult instanceof Error){
+            return res.status(401).json('Access token not provided');
+        }
+        next();
+    } catch {
+        return res.status(401).json('Error token');
+    }
+})
 
 const verifyToken = (token) => {
     return jwt.verify(token, secret, (err, decode) => {

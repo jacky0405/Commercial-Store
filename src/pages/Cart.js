@@ -42,32 +42,29 @@ const Cart = () => {
     }
 
     return (
-        <h2>
-            hello cart
-        </h2>
-        // <Layout>
-        //     <div className="cart-page">
-        //         <span className="cart-title">Shopping Cart</span>
-        //         <div className="cart-list">
-        //             <TransitionGroup component={null}>
-        //                 {
-        //                     cartItems.map(item => {
-        //                         return (
-        //                             <CSSTransition classNames="cart-item" timeout={300} key={item.id}>
-        //                                 <CartItem key={item.productId} countChange={countChange} deleteItem={deleteItem} item={item}/>
-        //                             </CSSTransition >
-        //                         )
-        //                     })
-        //                 }
-        //             </TransitionGroup >
-        //             {cartItems.length === 0 && <p className="no-cart">No items</p>}
-        //         </div>
-        //         <div className="cart-total">
-        //             Total:
-        //             <span className="total-price">{formatPrice(sumPrice())}</span>
-        //         </div>
-        //     </div>
-        // </Layout>
+        <Layout>
+            <div className="cart-page">
+                <span className="cart-title">Shopping Cart</span>
+                <div className="cart-list">
+                    <TransitionGroup component={null}>
+                        {
+                            cartItems.map(item => {
+                                return (
+                                    <CSSTransition classNames="cart-item" timeout={300} key={item.id}>
+                                        <CartItem key={item.productId} countChange={countChange} deleteItem={deleteItem} item={item}/>
+                                    </CSSTransition >
+                                )
+                            })
+                        }
+                    </TransitionGroup >
+                    {cartItems.length === 0 && <p className="no-cart">No items</p>}
+                </div>
+                <div className="cart-total">
+                    Total:
+                    <span className="total-price">{formatPrice(sumPrice())}</span>
+                </div>
+            </div>
+        </Layout>
     )
 }
 
