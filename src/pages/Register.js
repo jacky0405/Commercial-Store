@@ -9,7 +9,7 @@ const Rigister = (props) => {
 
     const onSubmit = async (data) => {
         data['type'] = 0;
-        await axios.post('http://localhost:3003/auth/register', data).then(r => {
+        await axios.post('https://commercial-store.herokuapp.com/auth/register', data).then(r => {
             global.auth.setToken(r.data);
             toast.success('Register Success', {
                 autoClose: 2000,

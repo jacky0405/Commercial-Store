@@ -16,7 +16,7 @@ export default function EditInventory(props){
     function submit(e) {
         e.preventDefault();
         const product = {...state};
-        axios.put(`http://localhost:5000/products/${product.id}`,product).then(r => {
+        axios.put(`https://commercial-store.herokuapp.com/products/${product.id}`,product).then(r => {
             console.log(r.data);
         });
         props.panelSwitcher('close');
@@ -27,7 +27,7 @@ export default function EditInventory(props){
 
     function productDelete() {
         const product = {...state};
-        axios.delete(`http://localhost:5000/products/${product.id}`).then(r => {
+        axios.delete(`https://commercial-store.herokuapp.com/products/${product.id}`).then(r => {
             console.log(r.data);
         });
         toast.success('Delete Success', {

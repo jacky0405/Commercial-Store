@@ -13,7 +13,7 @@ export default function Cart(){
 
     useEffect(() => {
         const user = global.auth.getUser() || {};
-        axios.get(`http://localhost:3003/carts?userId=${user.email}`).then(r => {
+        axios.get(`https://commercial-store.herokuapp.com/carts?userId=${user.email}`).then(r => {
             setCartItem(r.data);
         })
     },[helper])
@@ -23,7 +23,7 @@ export default function Cart(){
             return id === item.productId;
         })
         _item.count = Number(itemCount);
-        await axios.put(`http://localhost:3003/carts/${_item.id}`,_item).then(r => {
+        await axios.put(`https://commercial-store.herokuapp.com/carts/${_item.id}`,_item).then(r => {
             console.log("change count good");
         });
         setHelper(new Date().getTime());
@@ -37,7 +37,7 @@ export default function Cart(){
     }
 
     async function deleteItem(id){
-        await axios.delete(`http://localhost:3003/carts/${id}`);
+        await axios.delete(`https://commercial-store.herokuapp.com/carts/${id}`);
         setHelper(new Date().getTime());
     }
 

@@ -7,7 +7,7 @@ const Login = (props) => {
     const {register, handleSubmit, formState: { errors }} = useForm();
 
     const onSubmit = async (data) => {
-        await axios.post('http://localhost:3003/auth/login', data).then(r => {
+        await axios.post('https://commercial-store.herokuapp.com/auth/login', data).then(r => {
             global.auth.setToken(r.data);
             toast.success('Login Success', {
                 autoClose: 2000,
