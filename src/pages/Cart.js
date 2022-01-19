@@ -6,7 +6,7 @@ import { useState } from 'react/cjs/react.development';
 import { formatPrice } from '../common/helper';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
-export default function Cart(){
+const Cart = () => {
 
     const [cartItems, setCartItem] = useState([]);
     const [helper, setHelper] = useState("");
@@ -67,3 +67,5 @@ export default function Cart(){
         </Layout>
     )
 }
+
+export default Cart;
