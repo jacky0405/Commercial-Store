@@ -31,7 +31,7 @@ const ToolBox = (props) => {
                 autoClose: 2000,
                 });
         }else{
-            props.history.push('/cart');
+            props.history.push('/shoppingCart');
         }
     }
 
