@@ -1,19 +1,11 @@
-# How to use this code
-### Step 1. Clone this repository
+# Login information
+### Administrator
 ```
-https://github.com/jacky0405/Commercial-Store.git
+Username: admin@1123.com
+Password: 123456
 ```
-### Step 2. Direct into commerce-store and react-db folder, then
+### Member
 ```
-npm install
+Username: jacky0405@ymail.com
+Password: 123456
 ```
-### Step 3. 
-In commerce-store, run
-```
-npm start
-```
-In react-db, run
-```
-node server.js
-```
-### Enjoy your time!!
