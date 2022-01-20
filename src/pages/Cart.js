@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Layout from '../Layout';
 import CartItem from '../component/CartItem';
 import axios from '../common/axios';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import { formatPrice } from '../common/helper';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
